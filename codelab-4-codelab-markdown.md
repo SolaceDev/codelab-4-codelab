@@ -55,13 +55,34 @@ You should now have the *claat* command available to you.
 $ claat
 ```
 
+## Solace Guidelines
+Duration 0:05:00
+
+Please follow these guidelines when creating codelabs that will be hosted at solace.dev/codelabs
+
+### Content Guidance
+* Each codelab should be focused on one topic or a very small group of related topics. 
+* Use sections to separate steps for ease of navigation
+* Include an "Overview" or "What You'll Learn Section" at the beginning of a codelab
+* Include an "Environment Setup" or "What You'll Need Section" section that sets up the environment, if necessary. 
+* Try to make the codelab fun and engaging 
+* Provide code used in a public git repo
+
+### Where to create your codelab
+It is recommended that you create your codelab in a git repository for version tracking. This can be in the SolaceDev or SolaceSe git organizations. 
+It is fine to keep the codelab markdown in the same repository as sample code if desired.
+
+An example structure for a codelab repo can be seen [here](https://github.com/SolaceDev/codelab-4-codelab)
+
+
 ## Create your initial CodeLab
 Duration: 0:05:00
 
 Now that we have the environment setup let's go ahead and create a markdown file where we'll create the actual codelab. 
+Please have your markdown file name match the "id" in the header metadata that you will set in the next subsection. 
 
 ``` bash
-$ vim codelab.md
+$ vim unique-codelab-identifier.md
 ```
 
 
@@ -164,7 +185,7 @@ Let's add an image!
 See the "Markdown Syntax Backup" section for more examples of what can be done. 
 More Markdown Parser examples can be found [here](https://github.com/googlecodelabs/tools/tree/master/claat/parser/md).
 
-## Export & Serve
+## Export & Serve Locally
 Duration: 0:02:00
 
 Now that you have an initial codelab defined in your markdown file let's go ahead and generate the static site content. 
@@ -179,7 +200,7 @@ $ claat serve
 * Choose the directory that matches your "id" that you put in the headers. 
 * Viola! You should have your first codelab!
 
-## Host Your CodeLab
+## Add your CodeLab to solace.dev/codelabs
 Duration: 0:01:00
 
 When you ran the `claat export` command you created the static web content needed to host your codelab. 
@@ -189,12 +210,35 @@ Negative
 : Note that when you view it locally by opening index.html some of the graphics may not show up (such as access_time, Next, Back), but they work once online. 
 
 
-Now that you have the static content you can host it however you want.
-One option is pushing it to github and serving it up from Netlify.  
+### Stage your Codelab
+Clone the solace-dev-codelabs repo and checkout the dev branch
 
-If you'd like to create your own landing page for codelabs, [like this one](https://codelabs.developers.google.com), there is a tool to do that as well! 
-Check it out here: [CodeLabs Site](https://github.com/googlecodelabs/tools/blob/master/site/README.md)
+``` bash
+git clone git@github.com:SolaceDev/solace-dev-codelabs.git
+cd solace-dev-codelabs
+git checkout dev
+```
 
+Add your markdown file to the `markdown` folder and your claat exported web content to the `codelabs` folder. 
+Remember that the `claat export` command ran in the previous section generated your static web content in a folder that has the same name as your `id` in the header metadata. 
+Please ensure that your markdown file name matches your header metadata `id` for ease of future updates. 
+``` bash
+cp -r /path/to/<header-metadata-id> codelabs/
+cp -r /path/to/<header-metadata-id>.md markdown/
+```
+
+Commit & Push your changes on the Dev Branch
+``` bash
+git commit -a -m 'Added or Updated <header-metadata-id> codelab'
+git push 
+```
+
+### Create a Pull Request
+Now that your changes have been pushed to the dev branch we need to request that they get pulled into the master branch to go live on solace.dev/codelabs. 
+Do this by navigating to the github repo at: [https://github.com/SolaceDev/solace-dev-codelabs](https://github.com/SolaceDev/solace-dev-codelabs)
+
+Since your commit has already been pushed to the `dev` branch you should see a highlighted box near the top of the page with your newly pushed git branch name. 
+Choose the "Pull Request" button next to it and fill out the for with comments on what changes are being requested. Upon submitting the Pull Request the marketing team will be notified, perform a review and ensure the codelab goes live on the site. 
 
 ## Markdown Syntax Backup
 Duration: 0:00:00
