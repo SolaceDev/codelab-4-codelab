@@ -1,6 +1,6 @@
 author: Marc DiPasquale
 summary: Create a CodeLab Using Markdown
-id: codelab-4-codelab-markdown
+id: codelab-4-codelab
 categories: codelab,markdown
 environments: Web
 status: Published
@@ -79,7 +79,7 @@ Please follow these guidelines when creating codelabs that will be hosted at [so
 * Provide code used in a public git repo
 
 ### Where to create your codelab
-It is recommended that you create your codelab in a git repository for version tracking. This can be in the SolaceDev or SolaceSe git organizations. 
+It is recommended that you create your codelab in a git repository for version tracking. This can be in a Solace git org such as SolaceDev or SolaceSe; or a personal repo if preferred.  
 It is fine to keep the codelab markdown in the same repository as sample code if desired.
 
 An example structure for a codelab repo can be seen [here](https://github.com/SolaceDev/codelab-4-codelab)
