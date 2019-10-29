@@ -233,12 +233,12 @@ Negative
 
 
 ### Stage your Codelab
-Clone the solace-dev-codelabs repo and checkout the dev branch
+Clone the solace-dev-codelabs repo and checkout a new branch with a name that makes sense
 
 ``` bash
 git clone git@github.com:SolaceDev/solace-dev-codelabs.git
 cd solace-dev-codelabs
-git checkout dev
+git checkout -b add-codelab-foo
 ```
 
 Add your markdown file to the `markdown` folder and your claat exported web content to the `codelabs` folder. 
@@ -249,13 +249,13 @@ cp -r /path/to/<header-metadata-id> codelabs/
 cp -r /path/to/<header-metadata-id>.md markdown/
 ```
 
-Commit & Push your changes on the Dev Branch
+Commit & Push your changes 
 ``` bash
 git commit -a -m 'Added or Updated <header-metadata-id> codelab'
-git push 
+git push --set-upstream origin add-codelab-foo
 ```
 
 ### Create a Pull Request
-* Now that your changes have been pushed to the dev branch we need to request that they get pulled into the master branch to go live on solace.dev/codelabs. 
+* Now that your changes have been pushed to a new branch branch we need to request that they get pulled into the master branch to go live on solace.dev/codelabs. 
 * Do this by navigating to the github repo at: [https://github.com/SolaceDev/solace-dev-codelabs](https://github.com/SolaceDev/solace-dev-codelabs)
-* Since your commit has already been pushed to the `dev` branch you should see a highlighted box near the top of the page; Choose the "Pull Request" button next to it and fill out the for with comments on what changes are being requested. Upon submitting the Pull Request the marketing team will be notified, perform a review and ensure the codelab goes live on the site. 
+* Since your commit has already been pushed you should see a highlighted box near the top of the page; Choose the "Pull Request" button next to it and fill out the form with comments on what changes are being requested. Upon submitting the Pull Request the Codelabs team will be notified, perform a review and ensure the codelab goes live on the site. 
